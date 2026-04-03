@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, MessageCircle, X, ArrowRight, Zap, TrendingUp, ShieldAlert } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import aiAvatar from '../assets/ai_avatar.png';
 
 const AIAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const AIAssistant = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const avatarUrl = "/src/assets/ai_avatar.png";
+  const avatarUrl = aiAvatar;
 
   const suggestions = [
     { icon: <Zap size={14} />, text: "How can I save ₹2,000 more?" },

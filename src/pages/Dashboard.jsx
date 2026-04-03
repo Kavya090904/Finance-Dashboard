@@ -25,6 +25,7 @@ import AIAssistant from '../components/AIAssistant';
 import FinancialPulse from '../components/FinancialPulse';
 import Achievements from '../components/Achievements';
 import GoalPlanner from '../components/GoalPlanner';
+import growthIllustration from '../assets/growth_illustration.png';
 
 const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#3b82f6', '#8b5cf6'];
 
@@ -110,7 +111,7 @@ const Dashboard = () => {
         </div>
         <div style={{ flex: 0.4, display: 'flex', justifyContent: 'flex-end', position: 'relative', zIndex: 2 }}>
            <img 
-            src="/src/assets/growth_illustration.png" 
+            src={growthIllustration} 
             alt="Growth Illustration" 
             style={{ width: '220px', height: 'auto', borderRadius: '16px', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))' }} 
            />
