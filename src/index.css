@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --secondary: #64748b;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #0ea5e9;
+
+  /* Theme Defaults (Light) */
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --glass: rgba(255, 255, 255, 0.7);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+[data-theme='dark'] {
+  --bg-main: #020617;
+  --bg-card: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #1e293b;
+  --glass: rgba(15, 23, 42, 0.8);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.glass-effect {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.badge-income { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+.badge-expense { background: rgba(239, 68, 68, 0.1); color: var(--error); }
+
+.role-switcher {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+}
+.role-tab {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+.role-tab.active {
+  background: var(--bg-card);
+  color: var(--primary);
+  box-shadow: var(--shadow);
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .bento-col-8, .bento-col-4 {
+    grid-column: span 2 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    gap: 8px !important;
+  }
+  .nav-link {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+  .header-actions {
+    gap: 8px !important;
+  }
+  .role-switcher {
+    display: none !important; /* Hide on very small for simplicity or use icons */
+  }
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .bento-col-12, .bento-col-8, .bento-col-6, .bento-col-4 {
+    grid-column: span 1 !important;
+  }
+  .main-content {
+    padding: 16px !important;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .card {
+     padding: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+     padding: 0 16px !important;
+  }
+  .logo-text {
+     display: none;
+  }
+  .transaction-filters {
+     flex-direction: column;
+     align-items: stretch;
+  }
+  .transaction-table-wrapper {
+     overflow-x: auto;
+  }
+  table {
+     min-width: 600px;
+  }
+}
